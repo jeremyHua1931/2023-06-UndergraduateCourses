@@ -1,0 +1,138 @@
+cd /data/workspace/myshixun/overflow5
+
+
+void testn()
+{
+    int val;
+    volatile int local = uniqueval();
+
+    val = getbufn();
+
+    /* Check for corrupted stack */
+    if (local != uniqueval()) {
+		printf("Sabotaged!: the stack has been corrupted\n");
+    }
+    else if (val == cookie) {
+		printf("KABOOM!: getbufn returned 0x%x\n", val);
+		validate(4);
+    }
+    else {
+		printf("Dud: getbufn returned 0x%x\n", val);
+    }
+}
+
+ (gdb) disas getbufn
+Dump of assembler code for function getbufn:
+   0x0804929c <+0>:     push   %ebp   //将%ebp的值压入栈
+   0x0804929d <+1>:     mov    %esp,%ebp 
+   0x0804929f <+3>:     sub    $0x218,%esp  //将栈指针下移536个字节
+   0x080492a5 <+9>:     lea    -0x208(%ebp),%eax  //将%ebp-520地址所指向的内容赋给%eax
+   0x080492ab <+15>:    mov    %eax,(%esp)    //将%eax赋给%esp地址所指向的内容
+   0x080492ae <+18>:    call   0x8048d66 <Gets> //调用Gets函数进行输入
+   0x080492b3 <+23>:    mov    $0x1,%eax   //%eax=1
+   0x080492b8 <+28>:    leave  
+   0x080492b9 <+29>:    ret    
+End of assembler dump.
+
+
+
+
+
+   0x08048c54 <+0>:     push   %ebp   //将%ebp的值压入栈吗，
+   0x08048c55 <+1>:     mov    %esp,%ebp
+   0x08048c57 <+3>:     sub    $0x28,%esp   //栈指针下移40个字节
+   0x08048c5a <+6>:     call   0x8049023 <uniqueval>  //调用uniqueval函数
+   0x08048c5f <+11>:    mov    %eax,-0x10(%ebp)
+   0x08048c62 <+14>:    call   0x804929c <getbufn> 
+
+   0x08048c67 <+19>:    mov    %eax,-0xc(%ebp)
+   0x08048c6a <+22>:    call   0x8049023 <uniqueval>
+   0x08048c6f <+27>:    mov    -0x10(%ebp),%edx
+   0x08048c72 <+30>:    cmp    %edx,%eax
+   0x08048c74 <+32>:    je     0x8048c84 <testn+48>
+   0x08048c76 <+34>:    movl   $0x804a650,(%esp)
+   0x08048c7d <+41>:    call   0x8048900 <puts@plt>
+   0x08048c82 <+46>:    jmp    0x8048cc6 <testn+114>
+   0x08048c84 <+48>:    mov    -0xc(%ebp),%edx
+   0x08048c87 <+51>:    mov    0x804e104,%eax
+   0x08048c8c <+56>:    cmp    %eax,%edx
+   0x08048c8e <+58>:    jne    0x8048cb2 <testn+94>
+   0x08048c90 <+60>:    mov    $0x804a6b4,%eax
+   0x08048c95 <+65>:    mov    -0xc(%ebp),%edx
+   0x08048c98 <+68>:    mov    %edx,0x4(%esp)
+   0x08048c9c <+72>:    mov    %eax,(%esp)
+   0x08048c9f <+75>:    call   0x8048830 <printf@plt>
+   0x08048ca4 <+80>:    movl   $0x4,(%esp)
+   0x08048cab <+87>:    call   0x804942e <validate>
+   0x08048cb0 <+92>:    jmp    0x8048cc6 <testn+114>
+   0x08048cb2 <+94>:    mov    $0x804a6d4,%eax
+   0x08048cb7 <+99>:    mov    -0xc(%ebp),%edx
+   0x08048cba <+102>:   mov    %edx,0x4(%esp)
+   0x08048cbe <+106>:   mov    %eax,(%esp)
+   0x08048cc1 <+109>:   call   0x8048830 <printf@plt>
+   0x08048cc6 <+114>:   leave  
+   0x08048cc7 <+115>:   ret    
+End of assembler dump.
+
+(gdb) b getbufn
+Breakpoint 1 at 0x80492a5
+(gdb) r -n -u 2016010305
+Starting program: /data/workspace/myshixun/overflow5/bufbomb -n -u 2016010305
+Userid: 2016010305
+Cookie: 0x3d91b195
+
+Breakpoint 1, 0x080492a5 in getbufn ()
+(gdb) p/x ($ebp -0x208)
+                                    $1 = 0x556839c8
+(gdb) c
+Continuing.
+Type string:2135156
+Dud: getbufn returned 0x1
+Better luck next time
+
+Breakpoint 1, 0x080492a5 in getbufn ()
+(gdb) p/x ($ebp -0x208)
+                                       $2 = 0x556839b8
+(gdb) c
+Continuing.
+Type string:1531515
+Dud: getbufn returned 0x1
+Better luck next time
+
+Breakpoint 1, 0x080492a5 in getbufn ()
+(gdb) p/x ($ebp -0x208)
+                                       $3 = 0x55683968
+
+
+Breakpoint 1, 0x080492a5 in getbufn ()
+(gdb) p/x ($ebp -0x208)
+                                    $4 = 0x55683948
+(gdb) c
+Continuing.
+Type string:121321
+Dud: getbufn returned 0x1
+Better luck next time
+
+
+Continuing.
+Type string:121321
+Dud: getbufn returned 0x1
+Better luck next time
+
+Breakpoint 1, 0x080492a5 in getbufn ()
+(gdb) p/x ($ebp -0x208)
+                                 $5 = 0x556839b8
+(gdb) c
+Continuing.
+Type string:13132121
+Dud: getbufn returned 0x1
+Better luck next time
+[Inferior 1 (process 154) exited normally]
+
+
+
+
+lea 0x28(%esp), %ebp  //恢复%ebp的值
+mov  $0x3d91b195, %eax   //将cookie作为返回值
+push $0x08048c67   //返回testn调用gtebufn的下一条语句
+ret   //返回testn继续执行

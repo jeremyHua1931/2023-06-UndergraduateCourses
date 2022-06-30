@@ -1,0 +1,175 @@
+8条指令基本测试集
+.text
+	ori x29, x0, 12
+	ori x8, x0, 0x123
+	ori x9, x0, 0x345
+	add x7, x8, x9
+	sub x6, x7, x9
+                or  x10, x8, x9
+                and x11, x9, x10
+	sw x8, 0(x0)
+	sw x9, 4(x0)
+	sw x7, 4(x29)
+	lw x5, 0(x0)
+	beq x8, x5, _lb2
+	_lb1:
+	lw x9, 4(x29)
+	_lb2:
+	lw x5, 4(x0)
+	beq x9, x5, _lb1
+	
+	# Never return
+	
+
+00C06E93
+12306413
+34506493
+009403B3
+40938333
+00946533
+00A4F5B3
+00802023
+00902223
+007EA223
+00002283
+00540463
+004EA483
+00402283
+FE548CE3
+
+
+ori x4,x0 ,2
+ori x5,x0,3
+addi x5,x5,1
+blt x4,x5,L1
+addi x5,x5,1
+L1:
+	ori x5,x0,0
+
+0x00206213
+0x00306293
+0x00128293
+0x00524463
+0x00128293
+0x00006293
+
+
+ori x4,x0 ,2
+ori x5,x0,3
+addi x5,x5,1
+bge x5,x4,L1
+addi x5,x5,1
+L1:
+	ori x5,x0,0
+
+
+ori x4,x0 ,1
+ori x5,x0,12
+ori x6,x0,-1
+sll x7,x5,x4
+srl x8,x6,x4
+sra x8,x6,x4
+
+slli x7,x5,1
+srli x8,x6,1
+srai x8,x6,1
+
+0x00106213
+0x00C06293
+0xFFF06313
+0x004293B3
+0x00435433
+0x40435433
+0x00129393
+0x00135413
+0x40135413
+
+
+	ori x29, x0, 12
+	ori x8, x0, 0x123
+	ori x9, x0, 0x345
+	add x7, x8, x9
+	sub x6, x7, x9
+                or  x10, x8, x9
+                and x11, x9, x10
+	sw x8, 0(x0)
+	sw x9, 4(x0)
+	sw x7, 4(x29)
+	lw x5, 0(x0)
+	lb x6, 0(x0)
+    lh x8,0(x0)
+    
+ 0x00C06E93
+0x12306413
+0x34506493
+0x009403B3
+0x40938333
+0x00946533
+0x00A4F5B3
+0x00802023
+0x00902223
+0x007EA223
+0x00002283
+0x00000303
+0x00001403
+   
+   sw,sh,sb test 
+	ori x8, x0, -1
+    sw x0,0(x0)
+    sw x0,4(x0)
+    sw x0,8(x0)
+	sw x8, 0(x0)
+    sh x8, 4(x0)
+    sb x8, 8(x0)
+	lw x9,0(x0)         ffffffff
+    lw x10,4(x0)          ffff
+    lw x11,8(x0)        ff
+
+0xFFF06413
+0x00002023
+0x00002223
+0x00002423
+0x00802023
+0x00801223
+0x00800423
+0x00002483
+0x00402503
+0x00802583
+
+lui 	x5, 0xF1F2F		#x5寄存器的高20位设置为0xF1F2F
+		
+	
+		addi	x5, x0, 0xf3F4f5f6	#将x5寄存器的值设置为0xF1F2F3F4
+      	sw x0,0(x0)
+        sw x0,4(x0)
+        sw x0,8(x0)
+		sb		x5, 0(x0)		#数据内存地址0处的字节设置为0xF4
+		sb		x5, 1(x0)		#数据内存地址1处的字节设置为0xF4
+		sh		x5, 2(x0)		#数据内存地址2处的双字节设置为0xF3F4
+		sw		x5, 4(x0)		#数据内存地址4处的四字节设置为0xF1F2F3F4
+        
+
+    
+jar ,jarl    test
+
+
+ori x4,x0, 1
+ori x5,x0,20
+jal x1,12
+addi x4,x4,100
+addi x4,x4,100
+ori x4,x0, 0
+ori x4,x0, 0
+jalr x1,x0,8
+
+
+0x00106213
+0x01406293
+0x00C000EF
+0x06420213
+0x06420213
+0x00006213
+0x00006213
+0x008000E7
+
+

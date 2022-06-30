@@ -1,0 +1,90 @@
+08049284 <getbuf>:
+ 8049284:       55                      push   %ebp       //将%ebp压入栈中
+ 8049285:       89 e5                   mov    %esp,%ebp   //%ebp=%esp
+ 8049287:       83 ec 38                sub    $0x38,%esp   //栈指针下移56个字节
+ 804928a:       8d 45 d8                lea    -0x28(%ebp),%eax   //将%ebp-40的所指向的的值赋给%eax
+ 804928d:       89 04 24                mov    %eax,(%esp)     //将%eax的值赋给%esp所指向的内存
+ 8049290:       e8 d1 fa ff ff          call   8048d66 <Gets>   //调用Gets函数，进行输入
+ 8049295:       b8 01 00 00 00          mov    $0x1,%eax    //%eax=1 
+ 804929a:       c9                      leave
+ 804929b:       c3 
+
+08048d66 <Gets>:
+ 8048d66:       55                      push   %ebp
+ 8048d67:       89 e5                   mov    %esp,%ebp
+ 8048d69:       83 ec 28                sub    $0x28,%esp
+ 8048d6c:       8b 45 08                mov    0x8(%ebp),%eax
+ 8048d6f:       89 45 f0                mov    %eax,-0x10(%ebp)
+ 8048d72:       c7 05 10 e1 04 08 00    movl   $0x0,0x804e110
+ 8048d79:       00 00 00
+ 8048d7c:       eb 1c                   jmp    8048d9a <Gets+0x34>
+ 8048d7e:       8b 45 f4                mov    -0xc(%ebp),%eax
+ 8048d81:       89 c2                   mov    %eax,%edx
+ 8048d83:       8b 45 f0                mov    -0x10(%ebp),%eax
+ 8048d86:       88 10                   mov    %dl,(%eax)
+ 8048d88:       83 45 f0 01             addl   $0x1,-0x10(%ebp)
+ 8048d8c:       8b 45 f4                mov    -0xc(%ebp),%eax
+ 8048d8f:       0f be c0                movsbl %al,%eax
+ 8048d92:       89 04 24                mov    %eax,(%esp)
+ 8048d95:       e8 2e ff ff ff          call   8048cc8 <save_char>
+ 8048d9a:       a1 00 e1 04 08          mov    0x804e100,%eax
+ 8048d9f:       89 04 24                mov    %eax,(%esp)
+ 8048da2:       e8 e9 fa ff ff          call   8048890 <_IO_getc@plt>
+ 8048da7:       89 45 f4                mov    %eax,-0xc(%ebp)
+ 8048daa:       83 7d f4 ff             cmpl   $0xffffffff,-0xc(%ebp)
+ 8048dae:       74 06                   je     8048db6 <Gets+0x50>
+ 8048db0:       83 7d f4 0a             cmpl   $0xa,-0xc(%ebp)
+ 8048db4:       75 c8                   jne    8048d7e <Gets+0x18>
+ 8048db6:       8b 45 f0                mov    -0x10(%ebp),%eax
+ 8048db9:       c6 00 00                movb   $0x0,(%eax)
+ 8048dbc:       83 45 f0 01             addl   $0x1,-0x10(%ebp)
+ 8048dc0:       e8 89 ff ff ff          call   8048d4e <save_term>
+ 8048dc5:       8b 45 08                mov    0x8(%ebp),%eax
+ 8048dc8:       c9                      leave
+ 8048dc9:       c3                      ret
+
+ 08048b04 <smoke>:   //04 8b 04 08
+ 8048b04:       55                      push   %ebp   //将%ebp压入栈中
+ 8048b05:       89 e5                   mov    %esp,%ebp  
+ 8048b07:       83 ec 18                sub    $0x18,%esp   //栈指针下移24个字节
+ 8048b0a:       c7 04 24 b0 a5 04 08    movl   $0x804a5b0,(%esp)  
+ 8048b11:       e8 ea fd ff ff          call   8048900 <puts@plt>
+ 8048b16:       c7 04 24 00 00 00 00    movl   $0x0,(%esp)
+ 8048b1d:       e8 0c 09 00 00          call   804942e <validate>
+ 8048b22:       c7 04 24 00 00 00 00    movl   $0x0,(%esp)
+ 8048b29:       e8 f2 fd ff ff          call   8048920 <exit@plt>
+
+ 08048be0 <test>:
+ 8048be0:       55                      push   %ebp
+ 8048be1:       89 e5                   mov    %esp,%ebp
+ 8048be3:       83 ec 28                sub    $0x28,%esp   //栈指针下移40个字节
+ 8048be6:       e8 38 04 00 00          call   8049023 <uniqueval>
+ 8048beb:       89 45 f0                mov    %eax,-0x10(%ebp)
+ 8048bee:       e8 91 06 00 00          call   8049284 <getbuf>
+ 8048bf3:       89 45 f4                mov    %eax,-0xc(%ebp)
+ 8048bf6:       e8 28 04 00 00          call   8049023 <uniqueval>
+ 8048bfb:       8b 55 f0                mov    -0x10(%ebp),%edx
+ 8048bfe:       39 d0                   cmp    %edx,%eax
+ 8048c00:       74 0e                   je     8048c10 <test+0x30>
+ 8048c02:       c7 04 24 50 a6 04 08    movl   $0x804a650,(%esp)
+ 8048c09:       e8 f2 fc ff ff          call   8048900 <puts@plt>
+ 8048c0e:       eb 42                   jmp    8048c52 <test+0x72>
+ 8048c10:       8b 55 f4                mov    -0xc(%ebp),%edx
+ 8048c13:       a1 04 e1 04 08          mov    0x804e104,%eax
+ 8048c18:       39 c2                   cmp    %eax,%edx
+ 8048c1a:       75 22                   jne    8048c3e <test+0x5e>
+ 8048c1c:       b8 79 a6 04 08          mov    $0x804a679,%eax
+ 8048c21:       8b 55 f4                mov    -0xc(%ebp),%edx
+ 8048c24:       89 54 24 04             mov    %edx,0x4(%esp)
+ 8048c28:       89 04 24                mov    %eax,(%esp)
+ 8048c2b:       e8 00 fc ff ff          call   8048830 <printf@plt>
+ 8048c30:       c7 04 24 03 00 00 00    movl   $0x3,(%esp)
+ 8048c37:       e8 f2 07 00 00          call   804942e <validate>
+ 8048c3c:       eb 14                   jmp    8048c52 <test+0x72>
+ 8048c3e:       b8 96 a6 04 08          mov    $0x804a696,%eax
+ 8048c43:       8b 55 f4                mov    -0xc(%ebp),%edx
+ 8048c46:       89 54 24 04             mov    %edx,0x4(%esp)
+ 8048c4a:       89 04 24                mov    %eax,(%esp)
+ 8048c4d:       e8 de fb ff ff          call   8048830 <printf@plt>
+ 8048c52:       c9                      leave
+ 8048c53:       c3                      ret

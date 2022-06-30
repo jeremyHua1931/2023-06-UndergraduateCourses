@@ -1,0 +1,68 @@
+Wed Jun 30 21:47:52 CST 2021
+Trace back: Bad sequence in.main_pane.memory.interior.cs.body.tree.lwchildsite.clipper.canvas.sfchildsite.tree, aborting query. (2)
+    while executing
+"$itk_component(tree) insertquery end """
+    (object "::.main_pane.memory.interior.cs.body.tree" method "::vsimwidgets::Hierarchy::requery" body line 3)
+    invoked from within
+"requery"
+    (object "::.main_pane.memory.interior.cs.body.tree" method "::FlatMemlist::UpdateFlatMemList" body line 8)
+    invoked from within
+"$tree UpdateFlatMemList"
+    (procedure "Memview::delayedUpdateMemoryList" line 6)
+    invoked from within
+"Memview::delayedUpdateMemoryList"
+    ("after" script)
+  <2:E:/01_Tools/modeltech64/win64/tk8.5/bgerror.tcl:92: ::tkerror {Bad sequence in.main_pane.memory.interior.cs.body.tree.lwchildsite.clipper.canvas.sfchildsite.tree, aborting query. (2)}
+  <1:eval:1: ::tk::dialog::error::bgerror {Bad sequence in.main_pane.memory.interior.cs.body.tree.lwchildsite.clipper.canvas.sfchildsite.tree, aborting query. (2)}
+Wed Jun 30 23:59:22 CST 2021
+Trace back: can't read "Project(EchoCompileOutput)": no such element in array
+    while executing
+"lappend ProjectWriteArgs	$Project(EchoCompileOutput)"
+    (procedure "Project::saveProjectSpecificSettings" line 26)
+    invoked from within
+"Project::saveProjectSpecificSettings"
+    (procedure "quit" line 58)
+    invoked from within
+"quit"
+    (command for "WM_DELETE_WINDOW" window manager protocol)
+  <2:E:/01_Tools/modeltech64/win64/tk8.5/bgerror.tcl:92: ::tkerror {can't read "Project(EchoCompileOutput)": no such element in array}
+  <1:proc:137: ::tk::dialog::error::bgerror {can't read "Project(EchoCompileOutput)": no such element in array}
+Wed Jun 30 23:59:24 CST 2021
+Trace back: can't read "Project(EchoCompileOutput)": no such element in array
+    while executing
+"lappend ProjectWriteArgs	$Project(EchoCompileOutput)"
+    (procedure "Project::saveProjectSpecificSettings" line 26)
+    invoked from within
+"Project::saveProjectSpecificSettings"
+    (procedure "quit" line 58)
+    invoked from within
+"quit"
+    (command for "WM_DELETE_WINDOW" window manager protocol)
+  <2:E:/01_Tools/modeltech64/win64/tk8.5/bgerror.tcl:92: ::tkerror {can't read "Project(EchoCompileOutput)": no such element in array}
+  <1:proc:137: ::tk::dialog::error::bgerror {can't read "Project(EchoCompileOutput)": no such element in array}
+Wed Jun 30 23:59:25 CST 2021
+Trace back: can't read "Project(EchoCompileOutput)": no such element in array
+    while executing
+"lappend ProjectWriteArgs	$Project(EchoCompileOutput)"
+    (procedure "Project::saveProjectSpecificSettings" line 26)
+    invoked from within
+"Project::saveProjectSpecificSettings"
+    (procedure "quit" line 58)
+    invoked from within
+"quit"
+    (command for "WM_DELETE_WINDOW" window manager protocol)
+  <2:E:/01_Tools/modeltech64/win64/tk8.5/bgerror.tcl:92: ::tkerror {can't read "Project(EchoCompileOutput)": no such element in array}
+  <1:proc:137: ::tk::dialog::error::bgerror {can't read "Project(EchoCompileOutput)": no such element in array}
+Thu Jul 01 10:22:51 CST 2021
+Trace back: can't read "Project(EchoCompileOutput)": no such element in array
+    while executing
+"lappend ProjectWriteArgs	$Project(EchoCompileOutput)"
+    (procedure "Project::saveProjectSpecificSettings" line 26)
+    invoked from within
+"Project::saveProjectSpecificSettings"
+    (procedure "quit" line 58)
+    invoked from within
+"quit"
+    (command for "WM_DELETE_WINDOW" window manager protocol)
+  <2:E:/01_Tools/modeltech64/win64/tk8.5/bgerror.tcl:92: ::tkerror {can't read "Project(EchoCompileOutput)": no such element in array}
+  <1:eval:1: ::tk::dialog::error::bgerror {can't read "Project(EchoCompileOutput)": no such element in array}

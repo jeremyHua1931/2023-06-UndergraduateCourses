@@ -1,0 +1,37 @@
+void fizz(int val)
+{
+    if (val == cookie) {
+		printf("Fizz!: You called fizz(0x%x)\n", val);
+		validate(1);
+
+    } else
+		printf("Misfire: You called fizz(0x%x)\n", val);
+    exit(0);
+}
+
+
+ 08048b2e <fizz>:
+ 8048b2e:       55                      push   %ebp    //将%ebp压入栈中
+ 8048b2f:       89 e5                   mov    %esp,%ebp  //%rbp=%esp
+ 8048b31:       83 ec 18                sub    $0x18,%esp  //栈指针下移24个字节
+ 8048b34:       8b 55 08                mov    0x8(%ebp),%edx   //将%ebp+8 所指向的内存值赋给%rdx
+ 8048b37:       a1 04 e1 04 08          mov    0x804e104,%eax   //将0x804e104地址处的值赋给%rax
+ 8048b3c:       39 c2                   cmp    %eax,%edx      //比较
+ 8048b3e:       75 22                   jne    8048b62 <fizz+0x34>   //相等则跳转到0x8048b62
+ 8048b40:       b8 cb a5 04 08          mov    $0x804a5cb,%eax      //否则将0x804a5cb赋给%eax
+ 8048b45:       8b 55 08                mov    0x8(%ebp),%edx     //将%ebp+8地址所指向的值赋给%edx
+ 8048b48:       89 54 24 04             mov    %edx,0x4(%esp)    //将%edx的内容赋给%esp+4地址所指向的值
+ 8048b4c:       89 04 24                mov    %eax,(%esp)       //将%eax的内容赋给%esp所指向的值
+ 8048b4f:       e8 dc fc ff ff          call   8048830 <printf@plt>
+ 8048b54:       c7 04 24 01 00 00 00    movl   $0x1,(%esp)
+ 8048b5b:       e8 ce 08 00 00          call   804942e <validate>
+ 8048b60:       eb 14                   jmp    8048b76 <fizz+0x48>
+
+ 8048b62:       b8 ec a5 04 08          mov    $0x804a5ec,%eax   // 将0x804a5ec地址处的值赋给%rax
+ 8048b67:       8b 55 08                mov    0x8(%ebp),%edx    //将%ebp+8 所指向的内存值赋给%edx
+ 8048b6a:       89 54 24 04             mov    %edx,0x4(%esp)    //将%edx的内容赋给%esp+4地址所指向的值
+ 8048b6e:       89 04 24                mov    %eax,(%esp)      //将%eax的内容赋给%esp所指向的值
+ 8048b71:       e8 ba fc ff ff          call   8048830 <printf@plt>  
+ 
+ 8048b76:       c7 04 24 00 00 00 00    movl   $0x0,(%esp)
+ 8048b7d:       e8 9e fd ff ff          call   8048920 <exit@plt>

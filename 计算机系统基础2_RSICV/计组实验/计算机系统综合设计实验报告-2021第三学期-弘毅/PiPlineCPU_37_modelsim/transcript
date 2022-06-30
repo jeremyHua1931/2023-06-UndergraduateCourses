@@ -1,0 +1,69 @@
+# Reading E:/01_Tools/modeltech64/tcl/vsim/pref.tcl
+# //  ModelSim SE-64 10.4 Dec  3 2014 
+# //
+# //  Copyright 1991-2014 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //  THIS DOCUMENT CONTAINS TRADE SECRETS AND COMMERCIAL OR FINANCIAL
+# //  INFORMATION THAT ARE PRIVILEGED, CONFIDENTIAL, AND EXEMPT FROM
+# //  DISCLOSURE UNDER THE FREEDOM OF INFORMATION ACT, 5 U.S.C. SECTION 552.
+# //  FURTHERMORE, THIS INFORMATION IS PROHIBITED FROM DISCLOSURE UNDER
+# //  THE TRADE SECRETS ACT, 18 U.S.C. SECTION 1905.
+# //
+# OpenFile E:/Project/p_cpu_37/p_cpu_37.mpf
+# Loading project p_cpu_37
+vsim -voptargs=+acc work.sccomp_tb
+# vsim -gui E:\Project\p_cpu_37\p_cpu_37.mpf 
+# Start time: 09:45:01 on Jul 08,2021
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# 
+# Loading work.sccomp_tb(fast)
+# Loading work.sccomp(fast)
+# Loading work.sccpu(fast)
+# Loading work.NPC(fast)
+# Loading work.PC(fast)
+# Loading work.IF_ID_Register(fast)
+# Loading work.hazard(fast)
+# Loading work.ctrl(fast)
+# Loading work.EXT(fast)
+# Loading work.RF(fast)
+# Loading work.ctrl_mux(fast)
+# Loading work.ID_EX_Register(fast)
+# Loading work.forwarding(fast)
+# Loading work.alu_1_forward(fast)
+# Loading work.alu_2_forward(fast)
+# Loading work.alu(fast)
+# Loading work.branch_judge(fast)
+# Loading work.EX_MEM_Register(fast)
+# Loading work.MEM_WB_Register(fast)
+# Loading work.mux2(fast)
+# Loading work.dm(fast)
+# Loading work.im(fast)
+add wave -position insertpoint sim:/sccomp_tb/U_SCCOMP/U_SCPU/U_ctrl/*
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+# End time: 09:45:54 on Jul 08,2021, Elapsed time: 0:00:53
+# Errors: 0, Warnings: 0

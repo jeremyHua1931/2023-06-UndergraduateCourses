@@ -1,0 +1,8 @@
+INTSTYLE=impact
+INFILE=E:\Project\ise\isesscpu\impact.xsl
+OUTFILE=E:\Project\ise\isesscpu\impact.xsl
+FAMILY=Single
+PART=Single
+WORKINGDIR=E:\Project\ise\isesscpu
+LICENSE=iMPACT
+USER_INFO=iMPACT

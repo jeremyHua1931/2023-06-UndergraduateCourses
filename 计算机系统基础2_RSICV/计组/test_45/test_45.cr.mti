@@ -1,0 +1,92 @@
+E:/Project/test_45/src/alu.v {1 {vlog -work work -vopt -stats=none E:/Project/test_45/src/alu.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module alu
+
+Top level modules:
+	alu
+
+} {} {}} E:/Project/test_45/src/PC.v {1 {vlog -work work -vopt -stats=none E:/Project/test_45/src/PC.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module PC
+
+Top level modules:
+	PC
+
+} {} {}} E:/Project/test_45/src/mux1.v {1 {vlog -work work -vopt -stats=none E:/Project/test_45/src/mux1.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module mux1
+
+Top level modules:
+	mux1
+
+} {} {}} E:/Project/test_45/src/mux2.v {1 {vlog -work work -vopt -stats=none E:/Project/test_45/src/mux2.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module mux2
+
+Top level modules:
+	mux2
+
+} {} {}} E:/Project/test_45/src/sccpu.v {1 {vlog -work work -vopt -stats=none E:/Project/test_45/src/sccpu.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module sccpu
+
+Top level modules:
+	sccpu
+
+} {} {}} E:/Project/test_45/src/RF.v {1 {vlog -work work -vopt -stats=none E:/Project/test_45/src/RF.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module RF
+
+Top level modules:
+	RF
+
+} {} {}} E:/Project/test_45/src/sccomp_tb.v {1 {vlog -work work -vopt -stats=none E:/Project/test_45/src/sccomp_tb.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module sccomp_tb
+
+Top level modules:
+	sccomp_tb
+
+} {} {}} E:/Project/test_45/src/ctrl.v {1 {vlog -work work -vopt -stats=none E:/Project/test_45/src/ctrl.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module ctrl
+
+Top level modules:
+	ctrl
+
+} {} {}} E:/Project/test_45/src/sccomp.v {1 {vlog -work work -vopt -stats=none E:/Project/test_45/src/sccomp.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module sccomp
+
+Top level modules:
+	sccomp
+
+} {} {}} E:/Project/test_45/src/im.v {1 {vlog -work work -vopt -stats=none E:/Project/test_45/src/im.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module im
+
+Top level modules:
+	im
+
+} {} {}} E:/Project/test_45/src/NPC.v {1 {vlog -work work -vopt -stats=none E:/Project/test_45/src/NPC.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module NPC
+
+Top level modules:
+	NPC
+
+} {} {}} E:/Project/test_45/src/dm.v {1 {vlog -work work -vopt -stats=none E:/Project/test_45/src/dm.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module dm
+
+Top level modules:
+	dm
+
+} {} {}} E:/Project/test_45/src/EXT.v {1 {vlog -work work -vopt -stats=none E:/Project/test_45/src/EXT.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module EXT
+
+Top level modules:
+	EXT
+
+} {} {}}

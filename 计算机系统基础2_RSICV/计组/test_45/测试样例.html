@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" href="https://s1.ax1x.com/2020/03/27/GPH9xO.png" type="image/png"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <title>download sample</title>
+    </head>
+    <body>
+        <div class="container">
+            <button class="btn btn-primary" onclick="download()" vlaue="下载样例">下载样例</button>
+            <a style="display: none;" id="psd" target="_blank" download="sample.txt">nothing</a>
+        </div>
+        <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+        <script>
+            function download(){
+                let ua = "\x68\x74\x74\x70\x73\x3a\x2f\x2f\x6a\x75\x73\x74\x7a\x69\x73\x2e\x72\x74\x68\x65";
+                let ub = "\x2e\x78\x79\x7a\x2f\x68\x69\x64\x64\x65\x6e\x2f\x73\x61\x6d\x70\x6c\x65\x2e\x74\x78\x74";
+                let uc = "\x5b\x52\x49\x53\x43\x2d\x56\x20\x54\x65\x73\x74\x20\x53\x61\x6d\x70\x6c\x65\x5d";
+                $.get(ua + ub, function(data){
+                    let arr = data.match(/.{8}/g);
+                    let result = uc + "\r\n";
+                    for(let i = 0; i < arr.length; i++) {
+                        result = result + "\x30\x78" + arr[i] + "\r\n";
+                    }
+                    let downloader = document.getElementById("psd");
+                    downloader.href = "data:text/csv;charset=utf-8," + encodeURI(result);
+                    downloader.click();
+                })
+            }
+        </script>
+    </body>
+</html>

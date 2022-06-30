@@ -1,0 +1,155 @@
+E:/Project/p_cpu_37/src/sccomp_tb.v {1 {vlog -work work -vopt -stats=none E:/Project/p_cpu_37/src/sccomp_tb.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module sccomp_tb
+
+Top level modules:
+	sccomp_tb
+
+} {} {}} E:/Project/p_cpu_37/src/_01_IF_ID.v {1 {vlog -work work -vopt -stats=none E:/Project/p_cpu_37/src/_01_IF_ID.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module IF_ID_Register
+
+Top level modules:
+	IF_ID_Register
+
+} {} {}} E:/Project/p_cpu_37/src/2_1EXT.v {1 {vlog -work work -vopt -stats=none E:/Project/p_cpu_37/src/2_1EXT.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module EXT
+
+Top level modules:
+	EXT
+
+} {} {}} E:/Project/p_cpu_37/src/1_2_PC.v {1 {vlog -work work -vopt -stats=none E:/Project/p_cpu_37/src/1_2_PC.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module PC
+
+Top level modules:
+	PC
+
+} {} {}} E:/Project/p_cpu_37/src/4_1_dm.v {1 {vlog -work work -vopt -stats=none E:/Project/p_cpu_37/src/4_1_dm.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module dm
+
+Top level modules:
+	dm
+
+} {} {}} E:/Project/p_cpu_37/src/sccomp.v {1 {vlog -work work -vopt -stats=none E:/Project/p_cpu_37/src/sccomp.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module sccomp
+
+Top level modules:
+	sccomp
+
+} {} {}} {E:/Project/p_cpu_37/src/2_1_ ctrl.v} {1 {vlog -work work -vopt -stats=none {E:/Project/p_cpu_37/src/2_1_ ctrl.v}
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module ctrl
+
+Top level modules:
+	ctrl
+
+} {} {}} E:/Project/p_cpu_37/src/_00_Hazard.v {1 {vlog -work work -vopt -stats=none E:/Project/p_cpu_37/src/_00_Hazard.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module hazard
+
+Top level modules:
+	hazard
+
+} {} {}} E:/Project/p_cpu_37/src/1_3_im.v {1 {vlog -work work -vopt -stats=none E:/Project/p_cpu_37/src/1_3_im.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module im
+
+Top level modules:
+	im
+
+} {} {}} E:/Project/p_cpu_37/src/2_1_RF.v {1 {vlog -work work -vopt -stats=none E:/Project/p_cpu_37/src/2_1_RF.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module RF
+
+Top level modules:
+	RF
+
+} {} {}} E:/Project/p_cpu_37/src/1_1_NPC.v {1 {vlog -work work -vopt -stats=none E:/Project/p_cpu_37/src/1_1_NPC.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module NPC
+
+Top level modules:
+	NPC
+
+} {} {}} E:/Project/p_cpu_37/src/3_1_mux1_alu_1_forward.v {1 {vlog -work work -vopt -stats=none E:/Project/p_cpu_37/src/3_1_mux1_alu_1_forward.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module alu_1_forward
+
+Top level modules:
+	alu_1_forward
+
+} {} {}} E:/Project/p_cpu_37/src/3_1_mux1_alu_2_forward.v {1 {vlog -work work -vopt -stats=none E:/Project/p_cpu_37/src/3_1_mux1_alu_2_forward.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module alu_2_forward
+
+Top level modules:
+	alu_2_forward
+
+} {} {}} E:/Project/p_cpu_37/src/_03_EX_MEM.v {1 {vlog -work work -vopt -stats=none E:/Project/p_cpu_37/src/_03_EX_MEM.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module EX_MEM_Register
+
+Top level modules:
+	EX_MEM_Register
+
+} {} {}} E:/Project/p_cpu_37/src/3_2_alu.v {1 {vlog -work work -vopt -stats=none E:/Project/p_cpu_37/src/3_2_alu.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module alu
+
+Top level modules:
+	alu
+
+} {} {}} E:/Project/p_cpu_37/src/sccpu.v {1 {vlog -work work -vopt -stats=none E:/Project/p_cpu_37/src/sccpu.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module sccpu
+
+Top level modules:
+	sccpu
+
+} {} {}} E:/Project/p_cpu_37/src/_00_forwarding_unit.v {1 {vlog -work work -vopt -stats=none E:/Project/p_cpu_37/src/_00_forwarding_unit.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module forwarding
+
+Top level modules:
+	forwarding
+
+} {} {}} E:/Project/p_cpu_37/src/3_3_branch_judge.v {1 {vlog -work work -vopt -stats=none E:/Project/p_cpu_37/src/3_3_branch_judge.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module branch_judge
+
+Top level modules:
+	branch_judge
+
+} {} {}} E:/Project/p_cpu_37/src/5_1_mux2.v {1 {vlog -work work -vopt -stats=none E:/Project/p_cpu_37/src/5_1_mux2.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module mux2
+
+Top level modules:
+	mux2
+
+} {} {}} E:/Project/p_cpu_37/src/2_2_ctrl_mux.v {1 {vlog -work work -vopt -stats=none E:/Project/p_cpu_37/src/2_2_ctrl_mux.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module ctrl_mux
+
+Top level modules:
+	ctrl_mux
+
+} {} {}} E:/Project/p_cpu_37/src/_04_MEM_WB.v {1 {vlog -work work -vopt -stats=none E:/Project/p_cpu_37/src/_04_MEM_WB.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module MEM_WB_Register
+
+Top level modules:
+	MEM_WB_Register
+
+} {} {}} E:/Project/p_cpu_37/src/_02_ID_EX.v {1 {vlog -work work -vopt -stats=none E:/Project/p_cpu_37/src/_02_ID_EX.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module ID_EX_Register
+
+Top level modules:
+	ID_EX_Register
+
+} {} {}}

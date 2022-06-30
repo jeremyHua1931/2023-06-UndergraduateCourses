@@ -1,0 +1,189 @@
+ 08048b82 <bang>:   82 8b 04 08
+ 8048b82:       55                      push   %ebp
+ 8048b83:       89 e5                   mov    %esp,%ebp
+ 8048b85:       83 ec 18                sub    $0x18,%esp
+ 8048b88:       a1 0c e1 04 08          mov    0x804e10c,%eax
+ 8048b8d:       89 c2                   mov    %eax,%edx
+ 8048b8f:       a1 04 e1 04 08          mov    0x804e104,%eax
+ 8048b94:       39 c2                   cmp    %eax,%edx
+ 8048b96:       75 25                   jne    8048bbd <bang+0x3b>
+ 8048b98:       8b 15 0c e1 04 08       mov    0x804e10c,%edx
+ 8048b9e:       b8 0c a6 04 08          mov    $0x804a60c,%eax
+ 8048ba3:       89 54 24 04             mov    %edx,0x4(%esp)
+ 8048ba7:       89 04 24                mov    %eax,(%esp)
+ 8048baa:       e8 81 fc ff ff          call   8048830 <printf@plt>
+ 8048baf:       c7 04 24 02 00 00 00    movl   $0x2,(%esp)
+ 8048bb6:       e8 73 08 00 00          call   804942e <validate>
+ 8048bbb:       eb 17                   jmp    8048bd4 <bang+0x52>
+ 8048bbd:       8b 15 0c e1 04 08       mov    0x804e10c,%edx
+ 8048bc3:       b8 31 a6 04 08          mov    $0x804a631,%eax
+ 8048bc8:       89 54 24 04             mov    %edx,0x4(%esp)
+ 8048bcc:       89 04 24                mov    %eax,(%esp)
+ 8048bcf:       e8 5c fc ff ff          call   8048830 <printf@plt>
+ 8048bd4:       c7 04 24 00 00 00 00    movl   $0x0,(%esp)
+ 8048bdb:       e8 40 fd ff ff          call   8048920 <exit@plt>
+
+Dump of assembler code for function bang:
+   0x08048b82 <+0>:     push   %ebp    
+   0x08048b83 <+1>:     mov    %esp,%ebp
+   0x08048b85 <+3>:     sub    $0x18,%esp   //栈指针下移24个字节
+   0x08048b88 <+6>:     mov    0x804e10c,%eax  //将地址0x804e10c 内容赋给%eax
+   0x08048b8d <+11>:    mov    %eax,%edx     //%edx=%eax
+   0x08048b8f <+13>:    mov    0x804e104,%eax  //将地址0x804e104 内容赋给%eax
+   0x08048b94 <+18>:    cmp    %eax,%edx     //比较   global_value == cookie
+   0x08048b96 <+20>:    jne    0x8048bbd <bang+59> //相等跳转到0x8048bbd
+   0x08048b98 <+22>:    mov    0x804e10c,%edx   //不等则将地址0x804e10c的内容赋给%edx
+   0x08048b9e <+28>:    mov    $0x804a60c,%eax  //将地址0x804a60c的内容赋给%eax
+   0x08048ba3 <+33>:    mov    %edx,0x4(%esp)   //将%edx的内容赋给%esp+4地址所指向的值
+   0x08048ba7 <+37>:    mov    %eax,(%esp)       //将%eax的内容赋给%esp地址所指向的值
+   0x08048baa <+40>:    call   0x8048830 <printf@plt>
+   0x08048baf <+45>:    movl   $0x2,(%esp)
+   0x08048bb6 <+52>:    call   0x804942e <validate>
+   0x08048bbb <+57>:    jmp    0x8048bd4 <bang+82>
+
+   0x08048bbd <+59>:    mov    0x804e10c,%edx  //将地址0x804e10c的内容赋给%edx
+   0x08048bc3 <+65>:    mov    $0x804a631,%eax  //将地址0x804a631的内容赋给%eax
+   0x08048bc8 <+70>:    mov    %edx,0x4(%esp)   //将%edx的内容赋给%esp+4地址所指向的值
+   0x08048bcc <+74>:    mov    %eax,(%esp)     //将%eax的内容赋给%esp地址所指向的值
+   0x08048bcf <+77>:    call   0x8048830 <printf@plt>    
+   0x08048bd4 <+82>:    movl   $0x0,(%esp)
+   0x08048bdb <+89>:    call   0x8048920 <exit@plt>
+
+int global_value = 0;
+
+void bang(int val)
+{
+    if (global_value == cookie) {
+        printf("Bang!: You set global_value to 0x%x\n", global_value);
+        validate(2);
+    } else
+        printf("Misfire: global_value = 0x%x\n", global_value);
+    exit(0);
+}
+
+movl $0x5aad556c 0x804e10c
+ret
+
+111.o:     file format elf32-i386
+
+
+Disassembly of section .text:
+
+00000000 <.text>:
+   0:   c7 05 0c 41 80 00 6c    movl   $0x5ad556c,0x80410c
+   7:   55 ad 05 
+   a:   c3                      ret    
+
+   08048b82 <bang>: 82 8b 04 08
+
+c7 05 0c 41 80   00 6c 55 ad 05   
+c3 00 00 00 00   00 00 00 00 00 
+00 00 00 00 00   00 00 00 00 00   
+00 00 00 00 00   00 00 00 00 00
+00 00 00 00
+82 8b 04 08
+
+   
+c7 05 0c 41 80 00 6c 55 ad 05 c3 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 18 39 68 55 82 8b 04 08
+
+c7 05 0c 41 80 00 6c 55 ad 05 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 82 8b 04 08
+
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 c7 05 0c e1 04 08 6c 55 ad 5a 82 8b 04 08
+
+
+(gdb) i r
+eax            0x55683918       1432893720
+ecx            0x4c91c516       1284621590
+edx            0xf7fbe3e4       -134487068
+ebx            0x0      0
+esp            0x55683908       0x55683908 <_reserved+1038600>
+ebp            0x55683940       0x55683940 <_reserved+1038656>
+esi            0x3      3
+edi            0xf7fbe000       -134488064
+eip            0x804928d        0x804928d <getbuf+9>
+eflags         0x212    [ AF IF ]
+cs             0x23     35
+ss             0x2b     43
+ds             0x2b     43
+es             0x2b     43
+fs             0x0      0
+gs             0x63     99
+k0             0x0      0
+k1             0x0      0
+k2             0x0      0
+k3             0x0      0
+k4             0x0      0
+k5             0x0      0
+
+ 0x55683918 08048b82 <bang>:   82 8b 04 08
+
+Userid: 2019300003032
+Cookie: 0x5aad556c
+
+(gdb) x/x  0x804e104
+0x804e104 <cookie>:     0x5aad556c
+
+(gdb) x/x 0x0804e10c
+0x804e10c <global_value>:       0x00000000
+
+0x55683918
+
+
+
+1              6                 11                               21                              31                              40          
+b8 6c 55 ad 5a b9 0c e1 
+04 08 89 01 68 82 8b 04 
+08 c3 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00  
+00 00 00 00 18 39 68 55 
+
+b8 6c 55 ad 5a b9 0c e1 04 08 89 01 68 82 8b 04 08 c3 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 18 39 68 55 
+0x3d91b195  
+
+
+00000000 <.text>:
+   0:	b8 6c 55 ad 5a       	mov    $0x5aad556c,%eax
+   5:	b9 0c e1 04 08       	mov    $0x804e10c,%ecx
+   a:	89 01                	mov    %eax,(%ecx)
+   c:	68 82 8b 04 08       	push   $0x8048b82
+  11:	c3                   	ret   
+
+00000000 <.text>:
+   0:	b8 95 b1 91 3d       	mov    $0x3d91b195,%eax
+   5:	b9 0c e1 04 08       	mov    $0x804e10c,%ecx
+   a:	89 01                	mov    %eax,(%ecx)
+   c:	68 82 8b 04 08       	push   $0x8048b82
+  11:	c3        
+
+b8 95 b1 91 3d b9 0c e1 04 08 89 01 68 82 8b 04 08 c3 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 18 39 68 55 
+  
+08048b82 <bang>:
+ 8048b82:       55                      push   %ebp
+ 8048b83:       89 e5                   mov    %esp,%ebp
+ 8048b85:       83 ec 18                sub    $0x18,%esp
+ 8048b88:       a1 0c e1 04 08          mov    0x804e10c,%eax
+ 8048b8d:       89 c2                   mov    %eax,%edx
+ 8048b8f:       a1 04 e1 04 08          mov    0x804e104,%eax
+ 8048b94:       39 c2                   cmp    %eax,%edx
+ 8048b96:       75 25                   jne    8048bbd <bang+0x3b>
+ 8048b98:       8b 15 0c e1 04 08       mov    0x804e10c,%edx
+ 8048b9e:       b8 0c a6 04 08          mov    $0x804a60c,%eax
+ 8048ba3:       89 54 24 04             mov    %edx,0x4(%esp)
+ 8048ba7:       89 04 24                mov    %eax,(%esp)
+ 8048baa:       e8 81 fc ff ff          call   8048830 <printf@plt>
+ 8048baf:       c7 04 24 02 00 00 00    movl   $0x2,(%esp)
+ 8048bb6:       e8 73 08 00 00          call   804942e <validate>
+ 8048bbb:       eb 17                   jmp    8048bd4 <bang+0x52>
+ 8048bbd:       8b 15 0c e1 04 08       mov    0x804e10c,%edx
+ 8048bc3:       b8 31 a6 04 08          mov    $0x804a631,%eax
+ 8048bc8:       89 54 24 04             mov    %edx,0x4(%esp)
+ 8048bcc:       89 04 24                mov    %eax,(%esp)
+ 8048bcf:       e8 5c fc ff ff          call   8048830 <printf@plt>
+ 8048bd4:       c7 04 24 00 00 00 00    movl   $0x0,(%esp)
+ 8048bdb:       e8 40 fd ff ff          call   8048920 <exit@plt>
+
+
+
+
